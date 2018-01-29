@@ -16,7 +16,7 @@ CONSUMER_SECRET = ''
 ACCESS_TOKEN = ''
 ACCESS_TOKEN_SECRET = ''
 
-SCREEN_NAME = 'jack'
+SCREEN_NAME = 'eiaine'
 ```
 
 Run!
