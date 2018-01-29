@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style> 
+
+body { font: 12px Arial;}
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: grey;
+    stroke-width: 1;
+    shape-rendering: crispEdges;
+}
+
+</style>
+<body>
+    
+<script src="http://d3js.org/d3.v3.min.js"></script>
+
+<script>
+
+// Set the dimensions of the canvas / graph
+var margin = {top: 30, right: 20, bottom: 50, left: 60},
+    width = 900 - margin.left - margin.right,
+    height = 360 - margin.top - margin.bottom;
+
+// Parse the date / time
+var parseDate = d3.time.format("%a %b %d %H:%M:%S %Z %Y ").parse;
+
+// Set the ranges
+var y = d3.time.scale().range([height, 0]);
+var x = d3.scale.linear().range([0, width]);
+
+// Define the axes
+var xAxis = d3.svg.axis().scale(x)
+    .orient("bottom").ticks(5);
+
+var yAxis = d3.svg.axis().scale(y)
+    .orient("left").ticks(5);
+
+// Adds the svg canvas
+var svg = d3.select("body")
+    .append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+    .append("g")
+        .attr("transform", 
+              "translate(" + margin.left + "," + margin.top + ")");
+
+// Get the data
+d3.csv("data.csv", function(error, data) {
+    var max = data.length;
+    console.log(max)
+
+    data.forEach(function(d, i) {
+        d.date = parseDate(d.date);
+        d.close = max - i;
+    });
+
+    // Scale the range of the data
+    y.domain(d3.extent(data, function(d) { return d.date; }));
+    x.domain([0, d3.max(data, function(d) { return d.close; })]);
+
+    // Add the scatterplot
+    svg.selectAll("dot")
+        .data(data)
+      .enter().append("circle")
+        .attr("r", 1.0)
+        .attr("fill","#2980B9")
+        .attr("cy", function(d) { return y(d.date); })
+        .attr("cx", function(d) { return x(d.close); });
+
+    svg.append("g")
+        .attr("class", "x axis")
+        .attr("transform", "translate(0," + height + ")")
+        .call(xAxis);
+
+    svg.append("text")
+        .attr("class", "x label")
+        .attr("text-anchor", "middle")
+        .attr("x", width / 2)
+        .attr("y", height + 40)
+        .text("followers");
+        
+
+    svg.append("g")
+        .attr("class", "y axis")
+        .call(yAxis);
+
+    svg.append("text")
+        .attr("class", "y label")
+        .attr("text-anchor", "middle")
+        .attr("x", -height / 2 )
+        .attr("y", -50)        
+        .attr("transform", "rotate(-90)")
+        .text("account creation date");        
+
+});
+
+</script>
+</body>
