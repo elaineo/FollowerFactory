@@ -7,13 +7,16 @@ Install dependencies.
 pip install TwitterAPI
 ```
 
-Edit `ff.py` for your account. Go to https://apps.twitter.com/ to get your API keys.
+Edit `ff.py` for your account. Go to https://apps.twitter.com/ to get your API keys. 
+Don't forget to fill in your screen name.
 
 ```
 CONSUMER_KEY = ''
 CONSUMER_SECRET = ''
 ACCESS_TOKEN = ''
 ACCESS_TOKEN_SECRET = ''
+
+SCREEN_NAME = 'jack'
 ```
 
 Run!
