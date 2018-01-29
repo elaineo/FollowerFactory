@@ -21,4 +21,6 @@ Run!
 python ff.py
 ```
 
-When the script is complete, view results by opening `index.html` in your web browser.
+When the script is complete, view results by opening `index.html` in your web browser. Your plot will look something like this:
+
+<img src="https://raw.githubusercontent.com/elaineo/FollowerFactory/master/eiaine.png" width="900">
