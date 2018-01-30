@@ -19,6 +19,9 @@ def main():
     cursor = -1
     count = 0
 
+    with open('data.csv', 'a+') as f:
+        f.write("close,date \n")
+    
     while True:
         if not cursor:
             break
@@ -28,7 +31,7 @@ def main():
         logging.info(cursor)
         fans = [f['created_at'] for f in fans_clean['users']]
 
-        with open('data.csv', 'a+') as f:
+        with open('data.csv', 'a') as f:
             for fans in fans_clean['users']:
                 f.write("%s,%s \n" % (fans['id'], fans['created_at']) )
 
