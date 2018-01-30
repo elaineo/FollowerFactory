@@ -8,7 +8,7 @@ pip install TwitterAPI
 ```
 
 Edit `ff.py` for your account. Go to https://apps.twitter.com/ to get your API keys. 
-Don't forget to fill in your screen name.
+Don't forget to fill in your screen name (or someone else's).
 
 ```
 CONSUMER_KEY = ''
@@ -24,6 +24,6 @@ Run!
 python ff.py
 ```
 
-This can take a long time due to Twitter's rate-limiting, so expect to wait about an hour for every 12,000 followers. When the script is complete, view results by opening `index.html` in your web browser. Your plot will look something like this:
+This can take a long time due to Twitter's rate-limiting, so expect to wait about an hour for every 12,000 followers. When the script is complete, view the results by opening `index.html` in your web browser. Your plot will look something like this:
 
 <img src="https://raw.githubusercontent.com/elaineo/FollowerFactory/master/eiaine.png" width="900">
