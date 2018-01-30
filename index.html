@@ -24,9 +24,6 @@ var margin = {top: 30, right: 20, bottom: 50, left: 60},
     width = 900 - margin.left - margin.right,
     height = 360 - margin.top - margin.bottom;
 
-// Parse the date / time
-var parseDate = d3.time.format("%a %b %d %H:%M:%S %Z %Y ").parse;
-
 // Set the ranges
 var y = d3.time.scale().range([height, 0]);
 var x = d3.scale.linear().range([0, width]);
@@ -53,7 +50,7 @@ d3.csv("data.csv", function(error, data) {
     console.log(max)
 
     data.forEach(function(d, i) {
-        d.date = parseDate(d.date);
+        d.date = Date.parse(d.date);
         d.close = max - i;
     });
 
