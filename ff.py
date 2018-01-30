@@ -11,7 +11,7 @@ CONSUMER_SECRET = ''
 ACCESS_TOKEN = ''
 ACCESS_TOKEN_SECRET = ''
 
-SCREEN_NAME = 'rogerkver'
+SCREEN_NAME = 'eiaine'
 
 def main():
     logging.basicConfig(level=logging.INFO)
