@@ -24,6 +24,6 @@ Run!
 python ff.py
 ```
 
-When the script is complete, view results by opening `index.html` in your web browser. Your plot will look something like this:
+This can take a long time due to Twitter's rate-limiting, so expect to wait about an hour for every 12,000 followers. When the script is complete, view results by opening `index.html` in your web browser. Your plot will look something like this:
 
 <img src="https://raw.githubusercontent.com/elaineo/FollowerFactory/master/eiaine.png" width="900">
