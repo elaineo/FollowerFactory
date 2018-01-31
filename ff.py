@@ -20,7 +20,7 @@ def main():
     count = 0
 
     with open('data.csv', 'a+') as f:
-        f.write("close,date \n")
+        f.write("close,date\n")
     
     while True:
         if not cursor:
